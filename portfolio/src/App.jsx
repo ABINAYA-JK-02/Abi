@@ -2,7 +2,7 @@
 import Navbar from "./components/NavBar";
 
 const App = () => {
-    const appname = "Nav bar";
+    const appname = "Abi";
 
     return (
         <>
