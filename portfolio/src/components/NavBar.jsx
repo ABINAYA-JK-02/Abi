@@ -14,7 +14,7 @@ const Navbar = () => {
     {
       title: "Contact",
       path: "/contact"
-    }
+    } 
   ];
 
   return (
@@ -35,4 +35,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
- 
+ {/* // <li><button class=" bg-teal-500 text-white  font-bold py-2 px-4 rounded">Profile</button></li>
+            // <li><button class="bg-teal-500 text-white font-bold py-2 px-4 rounded">Projects</button></li>
+            // <li><button class="bg-teal-500 text-white font-bold py-2 px-4 rounded">Contact</button></li> */}
