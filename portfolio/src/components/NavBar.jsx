@@ -1,40 +1,36 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
 
 const Navbar = () => {
-  const NavLinks = [
-    {
-      title: "Profile",
-      path: "/"
-    },
-    {
-      title: "Projects",
-      path: "/projects"
-    },
-    {
-      title: "Contact",
-      path: "/contact"
-    } 
-  ];
+  const [themeIndex, setThemeIndex] = useState(0);
+
+  const themes = ['gradient-theme-1', 'gradient-theme-2', 'gradient-theme-3', 'gradient-theme-4'];
+
+  useEffect(() => {
+    document.body.classList.remove(...themes); // Remove all previous themes
+    document.body.classList.add(themes[themeIndex]); // Apply the current theme
+  }, [themeIndex]);
+
+  const toggleTheme = () => {
+    setThemeIndex((prevThemeIndex) => (prevThemeIndex + 1) % themes.length);
+  };
 
   return (
-    <div className="w-full h-[7vh] bg-gray-100 text-gray-800 flex flex-row justify-center items-center gap-4">
-      <div className="w-[80%] h-full flex flex-row justify-start items-center">
-        <div className="w-1/2 font-serif text-3xl flex justify-start items-center">Dharshini R</div>
-
-        <ul className="w-1/2 font-serif font-extrabold flex justify-end items-center space-x-4">
-          {NavLinks.map((navdata, index) => (
-            <NavLink key={index} to={navdata.path}>
-              <li className="bg-teal-500 text-white font-bold py-2 px-4 rounded">{navdata.title}</li>
-            </NavLink>
-          ))}
-        </ul>
+    <nav className="navbar">
+      <div className="logo">
+        <a href="#home">MyPortfolio</a>
       </div>
-    </div>
+      <ul className="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button className="theme-toggle" onClick={toggleTheme}>
+        Change Theme
+      </button>
+    </nav>
   );
 };
 
 export default Navbar;
- {/* // <li><button class=" bg-teal-500 text-white  font-bold py-2 px-4 rounded">Profile</button></li>
-            // <li><button class="bg-teal-500 text-white font-bold py-2 px-4 rounded">Projects</button></li>
-            // <li><button class="bg-teal-500 text-white font-bold py-2 px-4 rounded">Contact</button></li> */}

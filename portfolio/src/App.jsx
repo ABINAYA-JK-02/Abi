@@ -1,17 +1,23 @@
-// import Footer from "./components/Footer";
-import Navbar from "./components/NavBar";
 
-const App = () => {
-    const appname = "Abi";
+import './App.css'
+import About from './components/About'
+import Contact from './components/Contact'
+import Footer from '. /components/Footer'
+import Profile from './components/Profile'
+import Navbar from './components/Navbar'
 
-    return (
-        <>
-            <div className="h-screen w-screen flex flex-col justify-start items-center">
-                <Navbar appname={appname} />
-            </div>
 
-        </>
-    )
+function App() {
+
+  return (
+    <div>
+        <Navbar />
+        <Profile />
+        <About />
+        <Contact />
+        <Footer />
+    </div>
+  )
 }
 
-export default App;
+export default App
